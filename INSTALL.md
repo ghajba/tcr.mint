@@ -116,17 +116,19 @@ Make sure the files are executable
   - exit
   - cd ~/cardano-src/cardano-db-sync
   - chmod 600 config/pgpass-mainnet
-  - PGPASSFILE=config/pgpass-mainnet scripts/postgresql-setup.sh --createdb
+  - export PGPASSFILE=~/cardano-src/cardano-db-sync/config/pgpass-mainnet 
+  - scripts/postgresql-setup.sh --createdb
   - chmod 600 config/pgpass-testnet
-  - PGPASSFILE=config/pgpass-testnet scripts/postgresql-setup.sh --createdb
+  - export PGPASSFILE=~/cardano-src/cardano-db-sync/config/pgpass-testnet 
+  - scripts/postgresql-setup.sh --createdb
 
 Make sure you have the same version of db-sync source as version of the binary
 file that was installed:
   - cardano-db-sync --version
-    > cardano-db-sync 11.0.0 - linux-x86_64 - ghc-8.10<br>
-    > git revision e2d5cf8068c030ed3c8006ce008b4100fbaad581<br>
+    > cardano-db-sync 13.0.5 - linux-x86_64 - ghc-8.10<br/>
+    > git revision 8ad98d48e0068f3768d48e18fdcbe254037cba3b<br/>
   - cd ~/cardano-src/cardano-db-sync
-  - git checkout e2d5cf8068c030ed3c8006ce008b4100fbaad581
+  - git checkout 8ad98d48e0068f3768d48e18fdcbe254037cba3b
 
 Run and Configure the database to run on startup
   - sudo systemctl enable postgresql
